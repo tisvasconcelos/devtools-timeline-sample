@@ -30,4 +30,24 @@ router.get('/optimized', (req, res) => {
 	res.render('optimized', {importantEmails, emails});
 });
 
+router.post('/mark-read', (req, res) => {
+  importantEmails.filter(e => e.id == req.query.id).map(e => e.isRead = true);
+  emails.filter(e => e.id == req.query.id).map(e => e.isRead = true);
+  res.sendStatus(200);
+});
+
+router.post('/mark-read-all', (req, res) => {
+  let ids = req.query.ids.split(',');
+  let allEmails = importantEmails;
+  allEmails.concat(emails);
+
+  ids.forEach(id => {
+    allEmails.filter(e => e.id == id).map(e => e.isRead = true);
+  });
+
+  delete allEmails;
+
+  res.sendStatus(200);
+});
+
 module.exports = router;

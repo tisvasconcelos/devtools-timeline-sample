@@ -17,6 +17,10 @@ a {
   margin: 1em;
 }
 
+#mark-all-read {
+	float: right;
+}
+
 .emails {
   margin: 1em;
 }

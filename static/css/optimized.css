@@ -26,6 +26,10 @@ a {
   cursor: pointer;
 }
 
+#mark-all-read {
+	float: right;
+}
+
 .emails {
   margin: 1em;
 }
