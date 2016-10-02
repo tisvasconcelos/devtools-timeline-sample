@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <link rel="manifest" href="manifest.json"> -->
+	<title>Sample</title>
+	<link rel="stylesheet" href="/static/css/reset.css">
+  <link rel="stylesheet" href="/static/css/optimized.css">
+</head>
+<body>
+  <input type="radio" id="select-all" class="checkbox-hack">
+  <nav class="actions">
+    Selecionar:
+    <label for="select-all">Todos</label>
+  </nav>
+  <section class='emails'>
+    <h2>E-mails importantes</h2>
+		<ul class='email important'>
+		{{#each importantEmails}}
+			<li class="{{#is ./isRead true}}read{{/is}}">
+        <input type="checkbox" name="email-{{id}}" id="{{id}}">
+				<a href="#{{url}}" title="{{title}}">{{title}}</a>
+        <a href="#" class="delete">Excluir</a>
+			</li>
+		{{/each}}
+		</ul>
+    <h2>E-mails</h2>
+		<ul class='email'>
+		{{#each emails}}
+			<li class="{{#is ./isRead true}}read{{/is}}">
+        <input type="checkbox" name="email-{{id}}" id="{{id}}">
+				<a href="#{{url}}" title="{{title}}">{{title}}</a>
+        <a href="#" class="delete">Excluir</a>
+			</li>
+		{{/each}}
+		</ul>
+	</section>
+  <script src="/static/js/optimized.js"></script>
+</body>
+</html>
